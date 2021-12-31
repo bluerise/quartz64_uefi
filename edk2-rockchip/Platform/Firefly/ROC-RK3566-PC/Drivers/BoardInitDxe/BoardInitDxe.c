@@ -395,6 +395,10 @@ BoardInitWiFi (
   /* Configure pins */
   GpioSetIomuxConfig (mSdmmc1IomuxConfig, ARRAY_SIZE (mSdmmc1IomuxConfig));
 
+  /* Set Drive/Sample Degree to sane defaults for up to 50 Mhz */
+  CruSetSdmmcDriveDegree (1, 90);
+  CruSetSdmmcSampleDegree (1, 0);
+
   /* Set GPIO2 PB1 (WIFI_REG_ON) output high to enable WiFi */
   GpioPinSetDirection (2, GPIO_PIN_PB1, GPIO_PIN_OUTPUT);
   MicroSecondDelay (1000);

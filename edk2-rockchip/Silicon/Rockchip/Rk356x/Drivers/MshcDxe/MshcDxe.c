@@ -752,6 +752,10 @@ MshcDxeInitialize (
   MicroSecondDelay (5);
   CruDeassertSoftReset (13, 4);
 
+  /* Set Drive/Sample Degree to sane defaults for up to 50 Mhz */
+  CruSetSdmmcDriveDegree (0, 90);
+  CruSetSdmmcSampleDegree (0, 0);
+
   DEBUG ((DEBUG_BLKIO, "MshcDxeInitialize()\n"));
 
   /* Configure pins */
