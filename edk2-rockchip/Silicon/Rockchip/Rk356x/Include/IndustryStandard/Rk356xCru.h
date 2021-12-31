@@ -71,6 +71,24 @@
 /* SOFTRST registers */
 #define CRU_SOFTRST_CON(n)  (CRU_BASE + (n) * 0x4 + 0x0400)
 
+/* SD/MMC registers */
+#define CRU_SDMMC0_CON0     (CRU_BASE + 0x0580)
+#define CRU_SDMMC0_CON1     (CRU_BASE + 0x0584)
+#define CRU_SDMMC1_CON0     (CRU_BASE + 0x0588)
+#define CRU_SDMMC1_CON1     (CRU_BASE + 0x058C)
+#define CRU_SDMMC2_CON0     (CRU_BASE + 0x0590)
+#define CRU_SDMMC2_CON1     (CRU_BASE + 0x0594)
+#define CRU_EMMC_CON0       (CRU_BASE + 0x0598)
+#define CRU_EMMC_CON1       (CRU_BASE + 0x059C)
+
+/* SD/MMC fields */
+#define CRU_xMMC_CON0_DRV_DEGREE_SHIFT           1
+#define CRU_xMMC_CON0_DRV_DEGREE_MASK            (0x3U << CRU_xMMC_CON0_DRV_DEGREE_SHIFT)
+#define CRU_xMMC_CON0_DRV_DEGREE_VAL(x)          ((x) / 90)
+#define CRU_xMMC_CON1_SAMPLE_DEGREE_SHIFT        1
+#define CRU_xMMC_CON1_SAMPLE_DEGREE_MASK         (0x3U << CRU_xMMC_CON1_SAMPLE_DEGREE_SHIFT)
+#define CRU_xMMC_CON1_SAMPLE_DEGREE_VAL(x)       ((x) / 90)
+
 /* PMU PLL registers */
 #define PMUCRU_PLL_CON0(n)  (PMUCRU_BASE + (n) * 0x40 + 0x0)
 #define PMUCRU_PLL_CON1(n)  (PMUCRU_BASE + (n) * 0x40 + 0x4)

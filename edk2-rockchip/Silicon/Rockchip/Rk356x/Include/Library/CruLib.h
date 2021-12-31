@@ -44,6 +44,18 @@ CruSetSdmmcClockRate (
   );
 
 VOID
+CruSetSdmmcDriveDegree (
+  IN UINT8 Index,
+  IN UINTN Degree
+  );
+
+VOID
+CruSetSdmmcSampleDegree (
+  IN UINT8 Index,
+  IN UINTN Degree
+  );
+
+VOID
 CruSetEmmcClockRate (
   IN UINTN Rate
   );

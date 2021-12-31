@@ -279,6 +279,56 @@ CruSetSdmmcClockRate (
 }
 
 VOID
+CruSetSdmmcDriveDegree (
+  IN UINT8 Index,
+  IN UINTN Degree
+  )
+{
+    // XXX Mask all bits?
+    switch (Index) {
+    case 0:
+        MmioWrite32 (CRU_SDMMC0_CON0, CRU_xMMC_CON0_DRV_DEGREE_MASK << 16 |
+            CRU_xMMC_CON0_DRV_DEGREE_VAL(Degree) << CRU_xMMC_CON0_DRV_DEGREE_SHIFT);
+        break;
+    case 1:
+        MmioWrite32 (CRU_SDMMC1_CON0, CRU_xMMC_CON0_DRV_DEGREE_MASK << 16 |
+            CRU_xMMC_CON0_DRV_DEGREE_VAL(Degree) << CRU_xMMC_CON0_DRV_DEGREE_SHIFT);
+        break;
+    case 2:
+        MmioWrite32 (CRU_SDMMC2_CON0, CRU_xMMC_CON0_DRV_DEGREE_MASK << 16 |
+            CRU_xMMC_CON0_DRV_DEGREE_VAL(Degree) << CRU_xMMC_CON0_DRV_DEGREE_SHIFT);
+        break;
+    default:
+        ASSERT (FALSE);
+    }
+}
+
+VOID
+CruSetSdmmcSampleDegree (
+  IN UINT8 Index,
+  IN UINTN Degree
+  )
+{
+    // XXX Mask all bits?
+    switch (Index) {
+    case 0:
+        MmioWrite32 (CRU_SDMMC0_CON1, CRU_xMMC_CON1_SAMPLE_DEGREE_MASK << 16 |
+            CRU_xMMC_CON1_SAMPLE_DEGREE_VAL(Degree) << CRU_xMMC_CON1_SAMPLE_DEGREE_SHIFT);
+        break;
+    case 1:
+        MmioWrite32 (CRU_SDMMC1_CON1, CRU_xMMC_CON1_SAMPLE_DEGREE_MASK << 16 |
+            CRU_xMMC_CON1_SAMPLE_DEGREE_VAL(Degree) << CRU_xMMC_CON1_SAMPLE_DEGREE_SHIFT);
+        break;
+    case 2:
+        MmioWrite32 (CRU_SDMMC2_CON1, CRU_xMMC_CON1_SAMPLE_DEGREE_MASK << 16 |
+            CRU_xMMC_CON1_SAMPLE_DEGREE_VAL(Degree) << CRU_xMMC_CON1_SAMPLE_DEGREE_SHIFT);
+        break;
+    default:
+        ASSERT (FALSE);
+    }
+}
+
+VOID
 CruSetEmmcClockRate (
   IN UINTN Rate
   )
