@@ -428,6 +428,10 @@ BoardInitEmmc (
   MmioWrite32 (0xFE310000 + 0x804, BIT29);
   MmioWrite32 (0xFE310000 + 0x808, 0);
   MmioWrite32 (0xFE310000 + 0x80c, 0);
+
+  /* Set Drive/Sample Degree to sane defaults for up to 50 Mhz */
+  CruSetEmmcDriveDegree (90);
+  CruSetEmmcSampleDegree (0);
 }
 
 EFI_STATUS
