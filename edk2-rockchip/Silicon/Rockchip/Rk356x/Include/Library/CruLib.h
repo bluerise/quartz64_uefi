@@ -61,6 +61,16 @@ CruSetEmmcClockRate (
   );
 
 VOID
+CruSetEmmcDriveDegree (
+  IN UINTN Degree
+  );
+
+VOID
+CruSetEmmcSampleDegree (
+  IN UINTN Degree
+  );
+
+VOID
 CruSetPciePhySource (
   IN UINT8 Index,
   IN UINT8 Source

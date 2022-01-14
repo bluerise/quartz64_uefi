@@ -369,6 +369,26 @@ CruSetEmmcClockRate (
 }
 
 VOID
+CruSetEmmcDriveDegree (
+  IN UINTN Degree
+  )
+{
+    // XXX Mask all bits?
+    MmioWrite32 (CRU_EMMC_CON0, CRU_xMMC_CON0_DRV_DEGREE_MASK << 16 |
+        CRU_xMMC_CON0_DRV_DEGREE_VAL(Degree) << CRU_xMMC_CON0_DRV_DEGREE_SHIFT);
+}
+
+VOID
+CruSetEmmcSampleDegree (
+  IN UINTN Degree
+  )
+{
+    // XXX Mask all bits?
+    MmioWrite32 (CRU_EMMC_CON1, CRU_xMMC_CON1_SAMPLE_DEGREE_MASK << 16 |
+        CRU_xMMC_CON1_SAMPLE_DEGREE_VAL(Degree) << CRU_xMMC_CON1_SAMPLE_DEGREE_SHIFT);
+}
+
+VOID
 CruSetPciePhySource (
   IN UINT8 Index,
   IN UINT8 Source
